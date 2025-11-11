@@ -1,0 +1,27 @@
+{
+  "metadata": [
+    {
+      "src": [
+        { "files": [ "../src/**.csproj" ] }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "filter": "filter.yml"
+    }
+  ],
+  "build": {
+    "content": [
+      { "files": [ "index.md", "toc.yml", "articles/**.md" ] },
+      { "files": [ "api/**.yml" ], "dest": "api" }
+    ],
+    "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
+    "globalMetadata": {
+      "_appTitle": "Thresh",
+      "_appFaviconPath": "favicon.ico",
+      "_appLogoPath": "logo.png"
+    },
+    "template": [ "default" ],
+    "markdownEngineName": "markdig",
+    "dest": "_site"
+  }
+}

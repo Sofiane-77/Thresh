@@ -1,0 +1,39 @@
+name: ci
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  build-test-pack:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ windows-latest, macos-latest ]
+    steps:
+      - uses: actions/checkout@v4
+
+      # SDK récent qui supporte parfaitement .slnx
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore
+        run: dotnet restore Thresh.slnx
+
+      - name: Build (Warnings as Errors)
+        run: dotnet build Thresh.slnx -c Release -warnaserror
+
+      - name: Test
+        run: dotnet test Thresh.slnx -c Release --no-build --logger "trx;LogFileName=test-results.trx" /p:CollectCoverage=true
+
+      - name: Pack libraries
+        run: dotnet pack Thresh.slnx -c Release --no-build -o ./artifacts
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nupkgs-${{ matrix.os }}
+          path: artifacts/*.nupkg

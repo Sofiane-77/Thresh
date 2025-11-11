@@ -1,0 +1,30 @@
+## Build
+bin/
+obj/
+artifacts/
+TestResults/
+*.user
+*.suo
+*.userprefs
+*.ncrunchsolution
+*.ncrunchproject
+
+## VS / Rider
+.vs/
+.idea/
+*.DotSettings.user
+
+## Coverage / Reports
+coverage/
+*.coverage
+*.coveragexml
+
+## OS
+.DS_Store
+Thumbs.db
+
+## DocFX
+docs/_site/
+
+## Others
+*.log

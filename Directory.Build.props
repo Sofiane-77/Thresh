@@ -1,0 +1,23 @@
+<Project>
+    <PropertyGroup>
+        <Authors>sofiane-77</Authors>
+        <Company></Company>
+        <PackageProjectUrl>https://github.com/...</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/...</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+	<ItemGroup Condition="Exists('$(MSBuildThisFileDirectory)README.md')">
+		<None Include="$(MSBuildThisFileDirectory)README.md"
+			  Link="README.md"
+			  Pack="true"
+			  PackagePath="\" 
+	    />
+	</ItemGroup>
+</Project>

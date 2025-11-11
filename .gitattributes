@@ -1,0 +1,5 @@
+* text=auto
+*.sln text eol=crlf
+*.cs text eol=crlf
+*.yml text eol=lf
+*.md  text eol=lf
