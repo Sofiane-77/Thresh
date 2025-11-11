@@ -1,0 +1,8 @@
+apiRules:
+  - exclude:
+      uidRegex: '^Thresh\.Core(\.|$)'
+      type: Namespace
+      reason: "Cache l’implémentation; on documente d’abord les abstractions publiques."
+  - include:
+      uidRegex: '^Thresh\.Abstractions(\.|$)'
+      type: Namespace

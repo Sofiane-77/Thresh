@@ -1,0 +1,3 @@
+{"uri":"/lol-gameflow/v1/session","eventType":"Update","data":{"phase":"None"}}
+{"uri":"/lol-gameflow/v1/session","eventType":"Update","data":{"phase":"ChampSelect"}}
+{"uri":"/lol-gameflow/v1/session","eventType":"Update","data":{"phase":"InProgress"}}
